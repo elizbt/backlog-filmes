@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/dbConfig.js";
 
-const filmeModel = sequeliza.define('Filmes', {
+const filmeModel = sequelize.define('Filmes', {
 
     id: {
         type:DataTypes.INTEGER,
