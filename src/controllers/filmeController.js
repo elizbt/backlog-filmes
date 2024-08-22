@@ -13,7 +13,7 @@ class Filmes {
 
     async CadastrarFilme(req, res){
         try{
-            const filmeCadastrado = await filmeModel.create(req, body)
+            const filmeCadastrado = await filmeModel.create(req.body)
             res.json({ message: 'Filme cadastrado com sucesso!', filmeCadastrado});
         }
         catch(err){

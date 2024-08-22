@@ -26,7 +26,7 @@ const filmeModel = sequelize.define('Filmes', {
         aloowNull:false
     }
 }, {
-    timesTamps:false,
+    timestamps:false,
 });
 
 export default filmeModel;
