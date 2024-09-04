@@ -10,7 +10,20 @@ class Filmes {
             res.status(500).json({erro: err.message});
         }
     }
+    async BuscarFilmePorId(req , res){
+        try {
+            const FilmeEncontrado = await filmeModel.findByPk(req.params.id);
+            if(!FilmeEncontrado){
+                return res.status(404).json({erro:'Filme não encontrado'});
+            }
+            return res.json(FilmeEncontrado);
 
+        } 
+        catch (err) {
+            res.status(500).json({erro:err.message});
+
+        }
+    }
     async CadastrarFilme(req, res){
         try{
             const filmeCadastrado = await filmeModel.create(req.body)
