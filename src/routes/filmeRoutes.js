@@ -3,6 +3,7 @@ import filmeController from "../controllers/filmeController.js";
 
 const router = express.Router();
 const filme = new filmeController();
+
 // bloco de tratamento de erro
 router.get('/', (req, res)=> {
     try {
@@ -21,7 +22,6 @@ router.get('/:id', (req , res) =>{
         res.status(500).json({erro: err.message});
 
     }
-
  });
  
 router.post('/', (req, res)=> {
@@ -31,6 +31,15 @@ router.post('/', (req, res)=> {
     catch(err){
         res.status(500).json({erro: err.message});
     }
-})
+});
+
+router.put('/:id', (req, res)=>{
+     try{
+        filme.AtualizarFilme(req, res);
+    }
+    catch(err){
+        res.status(500).json({erro: err.message});
+    }
+});
 
 export default router;
