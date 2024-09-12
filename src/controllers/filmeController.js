@@ -48,6 +48,20 @@ class Filmes {
             res.status(500).json({erro: err.message});
         }
     }
+
+    async DeletarFilme(req, res){
+        try {
+            const filmeDeletado = await filmeModel.destroy({where: {id:req.params.id}});
+            if(filmeDeletado){
+                res.json({mensagem: 'Filme deletado com sucesso!'});
+            } else{
+                res.status(404).json({erro: 'Filme não encontrado.'});
+            }
+        }
+        catch(err){
+            res.status(500).json({erro: err.message});
+        }
+    }
 }
 
 export default Filmes;
